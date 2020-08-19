@@ -1,0 +1,13 @@
+
+<h5 class="text-center">Dashboard: {{ company }}</h5>
+<hr>
+<div class="card mt-5 m-auto" style="width: 400px;">
+  <!--<img class="card-img-top" src="{{ defaultUserImg }}" alt="Card image cap" style="height: auto;">-->
+  <div class="card-body" *ngIf="user">
+    <h5 class="card-title">{{ user.username }}</h5>
+    <p class="card-text">{{ user.email }}</p>
+    <p class="card-text">{{ user.mobile }}</p>
+    <p class="card-text">{{ user.address }}</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
