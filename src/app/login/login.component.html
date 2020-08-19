@@ -1,0 +1,69 @@
+<div class="row p-5" *ngIf="!loggedInUser">
+  <div class="col-12">
+
+    <div class="card m-auto" style="width: 500px;">
+      <div class="card-body">
+        <h5>Step 1. Login</h5>
+        <hr>
+        <form (ngSubmit)="login(f)" #f="ngForm">
+          <div class="alert alert-danger" *ngIf="message">{{ message }}</div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email"
+                   class="form-control"
+                   id="exampleInputEmail1"
+                   aria-describedby="emailHelp"
+                   placeholder="Enter email"
+                   name="email"
+                   ngModel
+                   email
+                   required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password"
+                   class="form-control"
+                   id="exampleInputPassword1"
+                   placeholder="Password"
+                   name="password"
+                   ngModel
+                   required>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="loggedInUser">
+  <div class="col-12">
+
+    <div class="card m-auto" style="width: 500px;">
+      <div class="card-body">
+        <h5>Step 2. Select Company</h5>
+        <hr>
+        <p>
+          Welcome user: <strong>{{ loggedInUser.username }}</strong>.
+          <br>
+          You are logged in with email : <strong>{{ loggedInUser.email }}</strong>
+          <br>
+          You are allowed to enter the following companies. Click to enter the company.
+        </p>
+        <!--<ul class="list-group list-group-horizontal mt-2">
+          <li class="list-group-item" *ngFor="let item of  allowedCompanies">
+            <a href="javascript:" (click)="onClickCompany(item)">
+              {{ item }}
+            </a>
+          </li>
+        </ul>-->
+        <div class="bd-callout bd-callout-info my-2" *ngFor="let item of  allowedCompanies">
+          <a href="javascript:" (click)="onClickCompany(item)">
+            {{ item }}
+          </a>
+          <p>The company informatin goes here..</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
