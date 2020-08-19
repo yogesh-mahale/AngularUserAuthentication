@@ -1,0 +1,17 @@
+<div class="row my-3">
+  <div class="col-12">
+    <button class="btn btn-primary" (click)="onNewUser()">New User</button>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12">
+    <app-user-item
+      *ngFor="let user of users; let i = index"
+      [user]="user"
+      [index]="user.id">
+    </app-user-item>
+  </div>
+</div>
